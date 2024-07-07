@@ -10,7 +10,7 @@ $config['rootUrl'] = "http://localhost:63342/wheelerrecommends/web/"; // TODO: h
 <head>
     <title>Wheeler Recommends</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='shortcut icon' href='images/favicon.ico'>
+    <link rel='shortcut icon' href='images/favicon.jpg'>
     <link rel='stylesheet' href='css/global.css'/>
     <?php
     if (isset($_GET['title'])) {
