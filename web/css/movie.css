@@ -26,7 +26,9 @@
 }
 
 .details-container .rhs .label {
+    color: #03d7fc;
     font-weight: bold;
+    padding-right: 16px;
 }
 
 .details-container .rhs .name-container .label {
@@ -41,7 +43,7 @@
 }
 
 .details-container .rhs .rating-container .value .fill {
-    color: orange;
+    color: #fbbc05;
 }
 
 .details-container .rhs .icon-container {

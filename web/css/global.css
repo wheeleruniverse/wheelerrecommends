@@ -33,10 +33,14 @@ a {
     border-bottom: 1px solid #03d7fc;
 }
 
+.header-container .github-link  {
+    margin-right: 32px;
+}
+
 .header-container .github-link .github-icon {
     border-bottom: 1px solid transparent;
     color: black;
-    font-size: 48px;
+    font-size: 72px;
     padding: 16px;
 }
 
@@ -60,7 +64,6 @@ a {
 
 .content-container .movies-container .poster:hover {
     border: 2px solid #03d7fc;
-    font-weight: bold;
 }
 
 .content-container .movies-container .poster > a > img {

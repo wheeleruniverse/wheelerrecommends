@@ -54,7 +54,7 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
             </div>
 
             <div class="genres-container">
-                <span class="label">Genre(s)&nbsp;</span>
+                <span class="label">Genre(s)</span>
                 <span class="value"><?= $target->get_genres(); ?></span>
             </div>
 
