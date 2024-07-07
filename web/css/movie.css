@@ -1,0 +1,81 @@
+
+.details-container {
+    display: flex;
+    margin: 0 32px 32px;
+    gap: 4%;
+}
+
+.details-container .lhs {
+    height: 420px;
+}
+
+.details-container .lhs img {
+    border: 1px solid #03d7fc;
+    box-shadow: 4px 2px 2px #03d7fc;
+    height: 100%;
+}
+
+.details-container .lhs img:hover {
+    box-shadow: 6px 4px 4px #03d7fc;
+}
+
+.details-container .rhs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.details-container .rhs .label {
+    font-weight: bold;
+}
+
+.details-container .rhs .name-container .label {
+    font-size: 36px;
+}
+
+.details-container .rhs .genres-container,
+.details-container .rhs .rating-container {
+    display: flex;
+    font-size: 28px;
+    justify-content: space-between;
+}
+
+.details-container .rhs .rating-container .value .fill {
+    color: orange;
+}
+
+.details-container .rhs .icon-container {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.details-container .rhs .icon-container .imdb {
+    background-color: black;
+    border-radius: 8px;
+    color: yellow;
+    font-size: 88px;
+    padding: 0 6px;
+}
+
+.details-container .rhs .icon-container .imdb:hover {
+    background-color: yellow;
+    color: black;
+}
+
+.details-container .rhs .icon-container .google {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    background-clip: text;
+    color: transparent;
+    font-size: 88px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.details-container .rhs .icon-container .google:hover {
+    background: conic-gradient(from -45deg, #fbbc05 110deg, #ea4335 90deg 180deg, #4285f4 180deg 270deg, #34a853 270deg) 73% 55%/150% 150% no-repeat;
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

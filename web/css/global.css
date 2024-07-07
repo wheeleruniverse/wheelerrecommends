@@ -1,0 +1,72 @@
+
+body {
+    background-color: rgb(240, 246, 252);
+    font-family: helvetica sans-serif;
+}
+
+a {
+    color: #03d7fc;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.header-container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 64px;
+}
+
+.header-container .brand-name {
+    border-bottom: 1px solid transparent;
+    color: #03d7fc;
+    font-size: 48px;
+    letter-spacing: 32px;
+    line-height: 2;
+    margin: 16px;
+}
+
+.header-container .brand-name:hover {
+    border-bottom: 1px solid #03d7fc;
+}
+
+.header-container .github-link .github-icon {
+    border-bottom: 1px solid transparent;
+    color: black;
+    font-size: 48px;
+    padding: 16px;
+}
+
+.header-container .github-link .github-icon:hover {
+    border-bottom: 1px solid #03d7fc;
+}
+
+.content-container .movies-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content-container .movies-container .poster {
+    border: 2px solid transparent;
+    text-align: center;
+    width: 15%;
+}
+
+.content-container .movies-container .poster:hover {
+    border: 2px solid #03d7fc;
+    font-weight: bold;
+}
+
+.content-container .movies-container .poster > a > img {
+    width: 100%;
+}
+
+.content-container .movies-container .poster .movie-name {
+    font-size: 22px;
+}

@@ -50,7 +50,8 @@ class MovieTitle
 
     public function get_genres()
     {
-        return $this->genres;
+        $value = $this->genres;
+        return substr($value, 1, strlen($value) - 2);
     }
 
     public function set_genres($genres)
