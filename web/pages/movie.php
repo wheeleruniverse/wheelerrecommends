@@ -41,7 +41,7 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
         <div class="lhs">
             <?php
             echo "<a href='$google_url' target='_blank'>";
-            echo "<img alt='Movie Poster' src='images/$id.jpg' onerror=\"this.onerror=null;this.src='images/noposter.jpg'\" />";
+            TemplateService::writeMoviePoster($id);
             echo "</a>";
             ?>
         </div>
@@ -90,4 +90,4 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
 <?php
 
 $page_instances = array_slice($distance_hits, 0, 12);
-TemplateService::write($page_instances, 12);
+TemplateService::writeMovies($page_instances, 12);

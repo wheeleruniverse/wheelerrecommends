@@ -15,9 +15,13 @@ a {
 
 .header-container {
     align-items: center;
+    background-color: rgb(240, 246, 252);
     display: flex;
     justify-content: space-between;
-    margin: 0 64px;
+    padding: 0 64px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .header-container .brand-name {

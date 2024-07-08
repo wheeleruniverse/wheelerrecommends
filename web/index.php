@@ -1,8 +1,10 @@
 <?php
 
-global $config;
+$rootUrl = "https://wheelerrecommends.com";
+//$rootUrl = "http://localhost:63342/wheelerrecommends/web/";
 
-$config['rootUrl'] = "http://localhost:63342/wheelerrecommends/web/"; // TODO: https://wheelerrecommends.com
+global $config;
+$config['rootUrl'] = $rootUrl;
 
 ?>
 
@@ -32,8 +34,14 @@ $config['rootUrl'] = "http://localhost:63342/wheelerrecommends/web/"; // TODO: h
 </head>
 <body>
 <div class='header-container'>
-    <?= "<a class='brand-name' href=" . $config['rootUrl'] . ">WHEELER RECOMMENDS</a>" ?>
-    <a class='github-link' href='https://github.com/wheeleruniverse/wheelerrecommends' target='_blank'>
+    <?= "<a class='brand-name' href='$rootUrl' swa-event='Navigate->Home' swa-event-async swa-event-category='Navigate'>WHEELER RECOMMENDS</a>" ?>
+    <a class='github-link'
+       href='https://github.com/wheeleruniverse/wheelerrecommends'
+       swa-event='Navigate->GitHub'
+       swa-event-async
+       swa-event-category='Navigate'
+       target='_blank'
+    >
         <i class='fa fa-github github-icon'></i>
     </a>
 </div>
@@ -46,6 +54,11 @@ $config['rootUrl'] = "http://localhost:63342/wheelerrecommends/web/"; // TODO: h
     }
     ?>
 </div>
+<script src="https://dhscpc2fh3pyz.cloudfront.net/cdn/client-script.js"
+        site="wheelerrecommends.com"
+        attr-tracking="true"
+>
+</script>
 </body>
 </html>
 

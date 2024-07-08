@@ -4,7 +4,7 @@ namespace services;
 
 class TemplateService
 {
-    public static function write($movie_title_instances, $page_size): void
+    public static function writeMovies($movie_title_instances, $page_size): void
     {
         global $config;
 
@@ -23,7 +23,8 @@ class TemplateService
 
                 echo "<span id='$id' class='poster'>";
                 echo "<a href='" . $config['rootUrl'] . "?title=$id'>";
-                echo "<img alt='Movie Poster' src='images/$id.jpg' onerror=\"this.onerror=null;this.src='images/noposter.jpg'\" />";
+
+                self::writeMoviePoster($id);
 
                 if (strlen($name) > 20) {
                     $name_substring = substr($name, 0, 17) . "...";
@@ -40,5 +41,12 @@ class TemplateService
         if (count($movie_pages) > 1) {
             echo "<div class='more-container'><button onclick='viewMoreMovies()'>View More</button></div>";
         }
+    }
+
+    public static function writeMoviePoster($id): void
+    {
+        $src = "images/$id.jpg";
+        $fallback = "images/noposter.jpg";
+        echo "<img alt='Movie Poster' src='$src' onerror=\"this.onerror=null;this.src='$fallback'\" loading='lazy' />";
     }
 }
