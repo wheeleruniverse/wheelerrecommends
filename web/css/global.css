@@ -73,3 +73,84 @@ a {
 .content-container .movies-container .poster .movie-name {
     font-size: 22px;
 }
+
+@media screen and (max-width: 1440px){
+    .header-container .brand-name {
+        letter-spacing: 24px;
+    }
+
+    .content-container .movies-container .poster {
+        width: 18%;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .header-container .brand-name {
+        letter-spacing: 8px;
+    }
+
+    .header-container .github-link .github-icon {
+        font-size: 56px;
+    }
+
+    .content-container .movies-container .poster {
+        width: 24%;
+    }
+
+    .content-container .movies-container .poster .movie-name {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .header-container .brand-name {
+        font-size: 36px;
+        letter-spacing: 2px;
+    }
+
+    .header-container .github-link  {
+        margin-right: 16px;
+    }
+
+    .header-container .github-link .github-icon {
+        font-size: 48px;
+        padding: 8px;
+    }
+
+    .content-container .movies-container .poster {
+        width: 30%;
+    }
+
+    .content-container .movies-container .poster .movie-name {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .header-container {
+        margin: 0 4px;
+    }
+
+    .header-container .brand-name {
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin: 8px;
+    }
+
+    .header-container .github-link  {
+        margin-right: 0
+    }
+
+    .header-container .github-link .github-icon {
+        font-size: 24px;
+        padding: 0;
+    }
+
+    .content-container .movies-container .poster {
+        width: 45%;
+    }
+
+    .content-container .movies-container .poster .movie-name {
+        font-size: 14px;
+    }
+}

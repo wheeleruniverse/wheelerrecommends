@@ -25,11 +25,7 @@ class TemplateService
 
                 echo "<span id='$id' class='poster'>";
                 echo "<a href='" . $config['rootUrl'] . "?title=$id'>";
-
-                // TODO: update to load images from S3 dynamically after the page has loaded to ensure good performance
-                // TODO: echo "<img src='/images/img/$id.jpg' onerror=\"this.onerror=null;this.src='noposter.jpg';\" />";
-
-                echo "<img alt='Movie Poster' src='images/noposter.jpg' />";
+                echo "<img alt='Movie Poster' src='images/$id.jpg' onerror=\"this.onerror=null;this.src='images/noposter.jpg'\" />";
 
                 if (strlen($name) > 20) {
                     $name_substring = substr($name, 0, 17) . "...";

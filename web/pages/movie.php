@@ -40,10 +40,9 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
     <div class="details-container">
         <div class="lhs">
             <?php
-            // TODO: update to load images from S3 dynamically after the page has loaded to ensure good performance
-            // TODO: echo "<img src='/images/$id.jpg' onerror=\"this.onerror=null;this.src='noposter.jpg';\" />";
-
-            echo "<a href='$google_url' target='_blank'><img alt='Movie Poster' src='images/noposter.jpg' /></a>";
+            echo "<a href='$google_url' target='_blank'>";
+            echo "<img alt='Movie Poster' src='images/$id.jpg' onerror=\"this.onerror=null;this.src='images/noposter.jpg'\" />";
+            echo "</a>";
             ?>
         </div>
         <div class="rhs">
@@ -54,7 +53,7 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
             </div>
 
             <div class="genres-container">
-                <span class="label">Genre(s)</span>
+                <span class="label">Genres</span>
                 <span class="value"><?= $target->get_genres(); ?></span>
             </div>
 
@@ -70,8 +69,14 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
                 foreach (range(0, $total - 1) as $i) {
                     echo "<span class='fa fa-star'></span>";
                 }
-                echo " (" . number_format($target->get_votes()) . ")";
                 ?>
+                </span>
+            </div>
+
+            <div class="votes-container">
+                <span class="label">Votes</span>
+                <span class="value">
+                    <?= number_format($target->get_votes()) ?>
                 </span>
             </div>
 

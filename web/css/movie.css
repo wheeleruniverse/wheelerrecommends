@@ -23,12 +23,28 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    width: 600px;
 }
 
 .details-container .rhs .label {
+    border-bottom: 1px solid transparent;
     color: #03d7fc;
     font-weight: bold;
+    letter-spacing: 2px;
     padding-right: 16px;
+}
+
+.details-container .rhs .value {
+    border-bottom: 1px solid transparent;
+}
+
+.details-container .rhs .label:hover,
+.details-container .rhs .value:hover {
+    border-bottom: 1px solid #03d7fc;
+}
+
+.details-container .rhs .name-container {
+    text-align: center;
 }
 
 .details-container .rhs .name-container .label {
@@ -36,7 +52,8 @@
 }
 
 .details-container .rhs .genres-container,
-.details-container .rhs .rating-container {
+.details-container .rhs .rating-container,
+.details-container .rhs .votes-container {
     display: flex;
     font-size: 28px;
     justify-content: space-between;
@@ -44,6 +61,7 @@
 
 .details-container .rhs .rating-container .value .fill {
     color: #fbbc05;
+    font-size: 28px;
 }
 
 .details-container .rhs .icon-container {
@@ -54,6 +72,7 @@
 
 .details-container .rhs .icon-container .imdb {
     background-color: black;
+    border-bottom: 1px solid transparent;
     border-radius: 8px;
     color: yellow;
     font-size: 88px;
@@ -61,13 +80,16 @@
 }
 
 .details-container .rhs .icon-container .imdb:hover {
-    background-color: yellow;
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #03d7fc;
     color: black;
 }
 
 .details-container .rhs .icon-container .google {
     background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
     background-clip: text;
+    border-bottom: 1px solid transparent;
     color: transparent;
     font-size: 88px;
     -webkit-background-clip: text;
@@ -77,6 +99,7 @@
 .details-container .rhs .icon-container .google:hover {
     background: conic-gradient(from -45deg, #fbbc05 110deg, #ea4335 90deg 180deg, #4285f4 180deg 270deg, #34a853 270deg) 73% 55%/150% 150% no-repeat;
     background-clip: text;
+    border-bottom: 1px solid #03d7fc;
     color: transparent;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
