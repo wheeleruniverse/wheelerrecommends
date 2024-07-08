@@ -104,3 +104,73 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+@media screen and (max-width: 768px){
+    .details-container .lhs {
+        height: 310px;
+    }
+
+    .details-container .lhs img {
+        box-shadow: 2px 1px 1px #03d7fc;
+    }
+
+    .details-container .lhs img:hover {
+        box-shadow: 4px 2px 2px #03d7fc;
+    }
+
+    .details-container .rhs .name-container .label {
+        font-size: 26px;
+    }
+
+    .details-container .rhs .genres-container,
+    .details-container .rhs .rating-container,
+    .details-container .rhs .votes-container {
+        font-size: 24px;
+    }
+
+    .details-container .rhs .icon-container {
+        justify-content: center;
+    }
+
+    .details-container .rhs .icon-container .imdb,
+    .details-container .rhs .icon-container .google {
+        font-size: 56px;
+        margin: 16px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .details-container {
+        align-items: center;
+        flex-direction: column-reverse;
+        margin: 8px;
+    }
+
+    .details-container .rhs {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        justify-content: space-evenly;
+        width: 90%;
+    }
+
+    .details-container .rhs .name-container .label {
+        font-size: 18px;
+    }
+
+    .details-container .rhs .genres-container,
+    .details-container .rhs .rating-container,
+    .details-container .rhs .votes-container {
+        font-size: 14px;
+    }
+
+    .details-container .rhs .rating-container .value .fill {
+        font-size: 18px;
+    }
+
+    .details-container .rhs .icon-container .imdb,
+    .details-container .rhs .icon-container .google {
+        font-size: 36px;
+    }
+}

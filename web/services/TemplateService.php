@@ -9,11 +9,9 @@ class TemplateService
         global $config;
 
         $movie_pages = array_chunk($movie_title_instances, $page_size);
-        //$page_instances = array_slice($movie_title_instances, 0, $page_size);
 
-        foreach($movie_pages as $key=>$page)
-        {
-            if($key === array_key_first($page)){
+        foreach ($movie_pages as $key => $page) {
+            if ($key === array_key_first($page)) {
                 echo "<div class='movies-container'>";
             } else {
                 echo "<div class='movies-container hidden'>";
@@ -39,6 +37,8 @@ class TemplateService
             }
             echo "</div>";
         }
-        echo "<div class='more-container'><button onclick='viewMoreMovies()'>View More</button></div>";
+        if (count($movie_pages) > 1) {
+            echo "<div class='more-container'><button onclick='viewMoreMovies()'>View More</button></div>";
+        }
     }
 }
