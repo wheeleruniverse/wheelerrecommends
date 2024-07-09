@@ -1,13 +1,15 @@
 FROM bref/php-83-fpm
 
+WORKDIR web
+
 RUN curl -s https://getcomposer.org/installer | php
 
 RUN php composer.phar require bref/bref
 
-COPY web/pages /var/task/
+COPY pages/ /var/task/
 
-COPY web/services /var/task/
+COPY services/ /var/task/
 
-COPY web/index.php /var/task/
+COPY index.php /var/task/
 
-CMD _HANDLER=index.php /opt/bootstrap
+CMD _HANDLER=/var/task/index.php /opt/bootstrap
