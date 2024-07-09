@@ -40,7 +40,7 @@ jobs:
 
       - name: Docker Build
         run: |
-          docker build -t ${{ env.AWS_ECR_REPOSITORY }} .
+          docker build -t ${{ env.AWS_ECR_REPOSITORY }}:${{ github.sha }} .
 
       - name: Docker Tag
         run: |
