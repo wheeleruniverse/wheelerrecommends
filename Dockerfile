@@ -4,9 +4,9 @@ RUN curl -s https://getcomposer.org/installer | php
 
 RUN php composer.phar require bref/bref
 
-COPY web/pages/ /var/task
+COPY web/pages/ /var/task/pages
 
-COPY web/services/ /var/task
+COPY web/services/ /var/task/services
 
 COPY web/index.php /var/task
 
