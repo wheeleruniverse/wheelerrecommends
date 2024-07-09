@@ -6,10 +6,8 @@ RUN curl -s https://getcomposer.org/installer | php
 
 RUN php composer.phar require bref/bref
 
-COPY pages/ /var/task/
+COPY . /var/task
 
-COPY services/ /var/task/
+RUN ls -lht
 
-COPY index.php /var/task/
-
-CMD _HANDLER=/var/task/index.php /opt/bootstrap
+CMD _HANDLER=index.php /opt/bootstrap
