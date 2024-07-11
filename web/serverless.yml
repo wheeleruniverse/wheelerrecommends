@@ -1,0 +1,35 @@
+service: wheelerrecommends
+
+provider:
+    name: aws
+    region: us-east-1
+
+plugins:
+  - ./vendor/bref/bref
+  - serverless-lift
+
+functions:
+    api:
+        description: 'serverless php movie recommendation engine'
+        handler: index.php
+        runtime: php-83-fpm
+        timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)
+        events:
+            - httpApi: 'GET /'
+
+constructs:
+  cdn:
+    type: server-side-website
+    assets:
+      '/css/*': css/
+      '/images/*': images/
+
+# exclude
+package:
+    patterns:
+        - '!css/**'
+        - '!images/**'
+        - '!node_modules/**'
+        - '!tests/**'
+
+
