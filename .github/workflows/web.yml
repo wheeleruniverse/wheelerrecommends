@@ -27,6 +27,9 @@ jobs:
       - name: Install Serverless Framework
         run: npm install -g serverless
 
+      - name: Install Serverless Plugins
+        run: serverless plugin install -n serverless-lift
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
