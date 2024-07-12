@@ -36,11 +36,13 @@ jobs:
         uses: ramsey/composer-install@v2
         with:
           composer-options: "--prefer-dist --optimize-autoloader --no-dev"
+          working-directory: web
 
       - name: Serverless Deploy
         uses: serverless/github-action@v3
         with:
           args: deploy
+          working-directory: web
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
