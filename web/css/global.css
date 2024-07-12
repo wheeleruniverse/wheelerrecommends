@@ -75,7 +75,7 @@ a {
 }
 
 .content-container .movies-container .poster .movie-name {
-    font-size: 22px;
+    font-size: 18px;
 }
 
 @media screen and (max-width: 1440px){
@@ -100,10 +100,6 @@ a {
     .content-container .movies-container .poster {
         width: 24%;
     }
-
-    .content-container .movies-container .poster .movie-name {
-        font-size: 20px;
-    }
 }
 
 @media screen and (max-width: 768px){
@@ -124,15 +120,11 @@ a {
     .content-container .movies-container .poster {
         width: 30%;
     }
-
-    .content-container .movies-container .poster .movie-name {
-        font-size: 18px;
-    }
 }
 
 @media screen and (max-width: 425px){
     .header-container {
-        margin: 0 4px;
+        padding: 0 4px;
     }
 
     .header-container .brand-name {
