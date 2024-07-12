@@ -32,6 +32,7 @@ $cluster_hits = SearchService::find_by_cluster($movies, $target->get_cluster());
 try {
     $distance_hits = SearchService::find_by_distance($cluster_hits, $name);
 } catch (Exception $e) {
+    $distance_hits = [];
 }
 
 $google_url = "https://www.google.com/search?q=$name ($year)";
@@ -40,7 +41,7 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
     <div class="details-container">
         <div class="lhs">
             <?php
-            echo "<a href='$google_url' target='_blank'>";
+            echo "<a href='$google_url' swa-event='Open->Poster' swa-event-async swa-event-category='Open' swa-event-data='$name ($year)' target='_blank'>";
             TemplateService::writeMoviePoster($id);
             echo "</a>";
             ?>
@@ -81,8 +82,10 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
             </div>
 
             <div class="icon-container">
-                <?= "<a target='_blank' href='https://www.imdb.com/title/$id/'><i class='fa fa-imdb imdb'></i></a>" ?>
-                <?= "<a target='_blank' href='https://www.google.com/search?q=$name ($year)'><i class='fa fa-google google'></i></a>" ?>
+                <?= "<a href='https://www.imdb.com/title/$id/' swa-event='Open->IMDb' swa-event-async swa-event-category='Open' swa-event-data='$id' target='_blank'>" ?>
+                <?= "<i class='fa fa-imdb imdb'></i></a>" ?>
+                <?= "<a href='https://www.google.com/search?q=$name ($year)' swa-event='Open->Google' swa-event-async swa-event-category='Open' swa-event-data='$name ($year)' target='_blank' >" ?>
+                <?= "<i class='fa fa-google google'></i></a>" ?>
             </div>
         </div>
     </div>

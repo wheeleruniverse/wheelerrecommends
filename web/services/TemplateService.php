@@ -22,7 +22,10 @@ class TemplateService
                 $year = $movie->get_year();
 
                 echo "<span id='$id' class='poster'>";
-                echo "<a href='" . $config['rootUrl'] . "?title=$id'>";
+
+                $titleUrl = $config['rootUrl'] . "?title=$id";
+
+                echo "<a href='$titleUrl' swa-event='Navigate->Movie' swa-event-async swa-event-category='Navigate' swa-event-data='$id'>";
 
                 self::writeMoviePoster($id);
 
@@ -39,7 +42,11 @@ class TemplateService
             echo "</div>";
         }
         if (count($movie_pages) > 1) {
-            echo "<div class='more-container'><button onclick='viewMoreMovies()'>View More</button></div>";
+            echo "<div class='more-container'>";
+            echo "<button onclick='viewMoreMovies()' swa-event='Load->ViewMore' swa-event-async swa-event-category='Load'>";
+            echo "View More";
+            echo "</button>";
+            echo "</div>";
         }
     }
 

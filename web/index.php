@@ -37,9 +37,9 @@ $config['rootUrl'] = $rootUrl;
     <?= "<a class='brand-name' href='$rootUrl' swa-event='Navigate->Home' swa-event-async swa-event-category='Navigate'>WHEELER RECOMMENDS</a>" ?>
     <a class='github-link'
        href='https://github.com/wheeleruniverse/wheelerrecommends'
-       swa-event='Navigate->GitHub'
+       swa-event='Open->GitHub'
        swa-event-async
-       swa-event-category='Navigate'
+       swa-event-category='Open'
        target='_blank'
     >
         <i class='fa fa-github github-icon'></i>
