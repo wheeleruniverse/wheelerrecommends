@@ -17,6 +17,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: web # sets the directory for "run" commands only
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
