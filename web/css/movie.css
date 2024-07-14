@@ -140,7 +140,7 @@
     }
 }
 
-@media screen and (max-width: 425px){
+@media screen and (max-width: 440px){
     .details-container {
         align-items: center;
         flex-direction: column-reverse;
