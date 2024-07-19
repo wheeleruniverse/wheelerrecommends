@@ -1,3 +1,5 @@
+[![web](https://github.com/wheeleruniverse/wheelerrecommends/actions/workflows/web.yml/badge.svg)](https://github.com/wheeleruniverse/wheelerrecommends/actions/workflows/web.yml)
+
 ## Wheeler Recommends
 
 Serverless PHP movie recommendation engine!
