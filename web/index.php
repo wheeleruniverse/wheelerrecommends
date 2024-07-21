@@ -51,6 +51,7 @@ $config['rootUrl'] = $rootUrl;
        swa-event='Open->GitHub'
        swa-event-async
        swa-event-category='Open'
+       target='_blank'
     >
         <i class='fa fa-brands fa-github github-icon'></i>
     </a>
