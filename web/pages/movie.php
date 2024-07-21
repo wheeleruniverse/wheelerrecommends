@@ -83,9 +83,9 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
 
             <div class="icon-container">
                 <?= "<a href='https://www.imdb.com/title/$id/' swa-event='Open->IMDb' swa-event-async swa-event-category='Open' swa-event-data='$id' target='_blank'>" ?>
-                <?= "<i class='fa fa-imdb imdb'></i></a>" ?>
+                <?= "<i class='fa fa-brands fa-imdb imdb'></i></a>" ?>
                 <?= "<a href='https://www.google.com/search?q=$name ($year)' swa-event='Open->Google' swa-event-async swa-event-category='Open' swa-event-data='$name ($year)' target='_blank' >" ?>
-                <?= "<i class='fa fa-google google'></i></a>" ?>
+                <?= "<i class='fa fa-brands fa-google google'></i></a>" ?>
             </div>
         </div>
     </div>
