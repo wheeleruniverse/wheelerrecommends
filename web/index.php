@@ -49,7 +49,6 @@ $config['rootUrl'] = $rootUrl;
     <a class='github-link'
        href='https://github.com/wheeleruniverse/wheelerrecommends'
        swa-event='Open->GitHub'
-       swa-event-async
        swa-event-category='Open'
        target='_blank'
     >

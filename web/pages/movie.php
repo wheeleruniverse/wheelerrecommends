@@ -41,7 +41,14 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
     <div class="details-container">
         <div class="lhs">
             <?php
-            echo "<a href='$google_url' swa-event='Open->Poster' swa-event-async swa-event-category='Open' swa-event-data='$name ($year)' target='_blank'>";
+            echo "
+            <a class='poster-link'
+               href='$google_url' 
+               swa-event='Open->Poster' 
+               swa-event-category='Open' 
+               swa-event-data='$name ($year)' 
+               target='_blank'
+            >";
             TemplateService::writeMoviePoster($id);
             echo "</a>";
             ?>
@@ -83,25 +90,25 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
 
             <div class="icon-container">
                 <?= "
-                <a href='https://www.imdb.com/title/$id/' 
+                <a class='imdb-link'
+                   href='https://www.imdb.com/title/$id/' 
                    swa-event='Open->IMDb'
-                   swa-event-async 
                    swa-event-category='Open' 
                    swa-event-data='$id' 
                    target='_blank'
-                 >
-                   <i class='fa fa-brands fa-imdb imdb'></i>
-                 </a>
-                 <a href='https://www.google.com/search?q=$name ($year)' 
-                    swa-event='Open->Google' 
-                    swa-event-async 
-                    swa-event-category='Open' 
-                    swa-event-data='$name ($year)' 
-                    target='_blank' 
-                 >
-                   <i class='fa fa-brands fa-google google'></i>
-                 </a>
-                 " ?>
+                >
+                  <i class='fa fa-brands fa-imdb imdb'></i>
+                </a>
+                <a class='google-link'
+                   href='https://www.google.com/search?q=$name ($year)' 
+                   swa-event='Open->Google' 
+                   swa-event-category='Open' 
+                   swa-event-data='$name ($year)' 
+                   target='_blank' 
+                >
+                  <i class='fa fa-brands fa-google google'></i>
+                </a>
+                " ?>
             </div>
         </div>
     </div>
