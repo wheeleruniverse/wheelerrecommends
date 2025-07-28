@@ -30,6 +30,8 @@ constructs:
     assets:
       '/css/*': css/
       '/images/*': images/
+      '/assets/*': assets/
+      '/favicon/*': favicon/
     domain:
       - ${self:custom.CUSTOM_DOMAIN}
       - www.${self:custom.CUSTOM_DOMAIN}
@@ -84,5 +86,7 @@ package:
     patterns:
         - '!css/**'
         - '!images/**'
+        - '!assets/**'
+        - '!favicon/**'
         - '!node_modules/**'
         - '!tests/**'
