@@ -56,18 +56,11 @@ class TemplateService
 
     public static function writeMoviePoster($id, $name, $year): void
     {
-        $posterPath = "images/$id.jpg";
+        $src = "images/$id.jpg";
         $fallback = "images/noposter.jpg";
         $altText = "Movie poster for $name ($year)";
         
-        // Check if the poster file exists, if not use fallback directly
-        if (file_exists($posterPath)) {
-            $src = $posterPath;
-        } else {
-            $src = $fallback;
-            $altText = "Movie poster not available for $name ($year)";
-        }
-        
+        // In serverless environment, rely on onerror fallback since file_exists() won't work for CDN assets
         echo "<img alt='$altText' src='$src' onerror=\"this.onerror=null;this.src='$fallback'\" loading='lazy' />";
     }
 }
