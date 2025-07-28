@@ -15,11 +15,11 @@ $config['rootUrl'] = $rootUrl;
     <meta name='description' content='Discover movie recommendations curated by Wheeler Universe. Find your next favorite film from our collection of quality recommendations.'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta name='theme-color' content='#2563eb'>
-    <link rel='icon' href='favicon/favicon.ico' type='image/x-icon'>
-    <link rel='icon' href='favicon/favicon-16x16.png' type='image/png' sizes='16x16'>
-    <link rel='icon' href='favicon/favicon-32x32.png' type='image/png' sizes='32x32'>
-    <link rel='apple-touch-icon' href='favicon/apple-touch-icon.png' sizes='180x180'>
-    <link rel='manifest' href='favicon/site.webmanifest'>
+    <link rel='icon' href='/favicon.ico' type='image/x-icon'>
+    <link rel='icon' href='/favicon/favicon-16x16.png' type='image/png' sizes='16x16'>
+    <link rel='icon' href='/favicon/favicon-32x32.png' type='image/png' sizes='32x32'>
+    <link rel='apple-touch-icon' href='/favicon/apple-touch-icon.png' sizes='180x180'>
+    <link rel='manifest' href='/favicon/site.webmanifest'>
     <link rel='preconnect' href='https://fonts.googleapis.com'>
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
     <link href='https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap' rel='stylesheet'>

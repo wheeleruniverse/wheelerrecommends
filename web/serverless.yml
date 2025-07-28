@@ -32,6 +32,7 @@ constructs:
       '/images/*': images/
       '/assets/*': assets/
       '/favicon/*': favicon/
+      '/favicon.ico': favicon.ico
     domain:
       - ${self:custom.CUSTOM_DOMAIN}
       - www.${self:custom.CUSTOM_DOMAIN}
