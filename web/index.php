@@ -1,6 +1,6 @@
 <?php
 
-$rootUrl = "http://localhost:63343/wheelerrecommends/";
+$rootUrl = "https://wheelerrecommends.com/";
 
 global $config;
 $config['rootUrl'] = $rootUrl;
