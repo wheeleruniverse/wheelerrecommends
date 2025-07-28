@@ -18,7 +18,7 @@ class MovieService
         $idx = 0;
         $movie_title_instances = array();
         if (($file = fopen(MovieService::$filename, "r")) !== FALSE) {
-            while (($row = fgetcsv($file)) !== FALSE) {
+            while (($row = fgetcsv($file, 0, ",", '"', "\\")) !== FALSE) {
                 $idx++;
                 if ($idx === 1) {
                     continue;

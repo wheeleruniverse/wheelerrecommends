@@ -35,11 +35,13 @@ try {
     $distance_hits = [];
 }
 
-$google_url = "https://www.google.com/search?q=$name ($year)";
+$google_url = "https://www.google.com/search?q=" . urlencode("$name ($year)");
+$escapedName = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+$escapedGenres = htmlspecialchars($target->get_genres(), ENT_QUOTES, 'UTF-8');
 
 ?>
-    <div class="details-container">
-        <div class="lhs">
+    <article class="movie-details" role="main">
+        <div class="movie-poster">
             <?php
             echo "
             <a class='poster-link'
@@ -48,72 +50,84 @@ $google_url = "https://www.google.com/search?q=$name ($year)";
                swa-event-category='Open' 
                swa-event-data='$name ($year)' 
                target='_blank'
+               rel='noopener noreferrer'
+               aria-label='Search for $escapedName ($year) on Google'
             >";
-            TemplateService::writeMoviePoster($id);
+            TemplateService::writeMoviePoster($id, $name, $year);
             echo "</a>";
             ?>
         </div>
-        <div class="rhs">
-            <div class="name-container">
-                <span class="label">
-                    <?= "$name ($year)" ?>
-                </span>
+        <div class="movie-info">
+            <header class="movie-title">
+                <h1><?= $escapedName ?> <span class="year">(<?= $year ?>)</span></h1>
+            </header>
+
+            <div class="movie-metadata">
+                <div class="metadata-item">
+                    <span class="label">Genres</span>
+                    <span class="value"><?= $escapedGenres ?></span>
+                </div>
+
+                <div class="metadata-item rating-item">
+                    <span class="label">Rating</span>
+                    <div class="rating-stars" aria-label="Rating: <?= $target->get_rating() ?> out of 10 stars">
+                        <?php
+                        $rating = $target->get_rating();
+                        for ($i = 1; $i <= 10; $i++) {
+                            if ($i <= $rating) {
+                                echo "<span class='fa fa-star filled' aria-hidden='true'></span>";
+                            } else {
+                                echo "<span class='fa fa-star' aria-hidden='true'></span>";
+                            }
+                        }
+                        ?>
+                        <span class="rating-text"><?= $rating ?>/10</span>
+                    </div>
+                </div>
+
+                <div class="metadata-item">
+                    <span class="label">Votes</span>
+                    <span class="value"><?= number_format($target->get_votes()) ?></span>
+                </div>
             </div>
 
-            <div class="genres-container">
-                <span class="label">Genres</span>
-                <span class="value"><?= $target->get_genres(); ?></span>
-            </div>
-
-            <div class="rating-container">
-                <span class="label">Rating</span>
-                <span class="value">
-                <?php
-                $total = 10;
-                foreach (range(1, $target->get_rating()) as $i) {
-                    echo "<span class='fa fa-star fill'></span>";
-                    $total--;
-                }
-                foreach (range(0, $total - 1) as $i) {
-                    echo "<span class='fa fa-star'></span>";
-                }
-                ?>
-                </span>
-            </div>
-
-            <div class="votes-container">
-                <span class="label">Votes</span>
-                <span class="value">
-                    <?= number_format($target->get_votes()) ?>
-                </span>
-            </div>
-
-            <div class="icon-container">
+            <div class="external-links">
                 <?= "
-                <a class='imdb-link'
+                <a class='external-link imdb-link'
                    href='https://www.imdb.com/title/$id/' 
                    swa-event='Open->IMDb'
                    swa-event-category='Open' 
                    swa-event-data='$id' 
                    target='_blank'
+                   rel='noopener noreferrer'
+                   aria-label='View $escapedName on IMDb (opens in new window)'
                 >
-                  <i class='fa fa-brands fa-imdb imdb'></i>
+                  <i class='fa fa-brands fa-imdb' aria-hidden='true'></i>
+                  <span class='link-text'>IMDb</span>
                 </a>
-                <a class='google-link'
-                   href='https://www.google.com/search?q=$name ($year)' 
+                <a class='external-link google-link'
+                   href='$google_url' 
                    swa-event='Open->Google' 
                    swa-event-category='Open' 
                    swa-event-data='$name ($year)' 
                    target='_blank' 
+                   rel='noopener noreferrer'
+                   aria-label='Search for $escapedName on Google (opens in new window)'
                 >
-                  <i class='fa fa-brands fa-google google'></i>
+                  <i class='fa fa-brands fa-google' aria-hidden='true'></i>
+                  <span class='link-text'>Google</span>
                 </a>
                 " ?>
             </div>
         </div>
-    </div>
+    </article>
+
+    <section class="recommendations" aria-labelledby="recommendations-heading">
+        <h2 id="recommendations-heading">Similar Movies</h2>
 
 <?php
 
-$page_instances = array_slice($distance_hits, 0, 12);
-TemplateService::writeMovies($page_instances, 12);
+$page_instances = array_slice($distance_hits, 0, 15);
+TemplateService::writeMovies($page_instances, 15);
+
+?></section>

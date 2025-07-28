@@ -13,4 +13,4 @@ $movies = MovieService::find_all();
 shuffle($movies);
 
 # render
-TemplateService::writeMovies($movies, 24);
+TemplateService::writeMovies($movies, 25);
