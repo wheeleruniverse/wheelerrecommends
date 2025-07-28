@@ -20,14 +20,18 @@ class TemplateService
                 $id = $movie->get_id();
                 $name = $movie->get_name();
                 $year = $movie->get_year();
+                $genres = $movie->get_genres();
+                $rating = $movie->get_rating();
 
-                echo "<span id='$id' class='poster'>";
+                echo "<article id='$id' class='poster'>";
 
                 $titleUrl = $config['rootUrl'] . "?title=$id";
+                $escapedName = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+                $ariaLabel = "View details for $escapedName ($year)";
 
-                echo "<a href='$titleUrl' swa-event='Navigate->Movie' swa-event-async swa-event-category='Navigate' swa-event-data='$id'>";
+                echo "<a href='$titleUrl' swa-event='Navigate->Movie' swa-event-async swa-event-category='Navigate' swa-event-data='$id' aria-label='$ariaLabel'>";
 
-                self::writeMoviePoster($id);
+                self::writeMoviePoster($id, $escapedName, $year);
 
                 if (strlen($name) > 20) {
                     $name_substring = substr($name, 0, 17) . "...";
@@ -35,25 +39,35 @@ class TemplateService
                     $name_substring = substr($name, 0, 20);
                 }
 
-                echo "<span class='movie-name'>$name_substring ($year)</span>";
+                echo "<span class='movie-name'>" . htmlspecialchars($name_substring, ENT_QUOTES, 'UTF-8') . " ($year)</span>";
                 echo "</a>";
-                echo "</span>";
+                echo "</article>";
             }
             echo "</div>";
         }
         if (count($movie_pages) > 1) {
             echo "<div class='more-container'>";
-            echo "<button onclick='viewMoreMovies()' swa-event='Load->ViewMore' swa-event-async swa-event-category='Load'>";
-            echo "View More";
+            echo "<button onclick='viewMoreMovies()' swa-event='Load->ViewMore' swa-event-async swa-event-category='Load' aria-label='Load more movie recommendations'>";
+            echo "View More Movies";
             echo "</button>";
             echo "</div>";
         }
     }
 
-    public static function writeMoviePoster($id): void
+    public static function writeMoviePoster($id, $name, $year): void
     {
-        $src = "images/$id.jpg";
+        $posterPath = "images/$id.jpg";
         $fallback = "images/noposter.jpg";
-        echo "<img alt='Movie Poster' src='$src' onerror=\"this.onerror=null;this.src='$fallback'\" loading='lazy' />";
+        $altText = "Movie poster for $name ($year)";
+        
+        // Check if the poster file exists, if not use fallback directly
+        if (file_exists($posterPath)) {
+            $src = $posterPath;
+        } else {
+            $src = $fallback;
+            $altText = "Movie poster not available for $name ($year)";
+        }
+        
+        echo "<img alt='$altText' src='$src' onerror=\"this.onerror=null;this.src='$fallback'\" loading='lazy' />";
     }
 }

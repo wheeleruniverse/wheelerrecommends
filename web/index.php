@@ -1,17 +1,28 @@
 <?php
 
-$rootUrl = "https://wheelerrecommends.com";
+$rootUrl = "http://localhost:63343/wheelerrecommends/";
 
 global $config;
 $config['rootUrl'] = $rootUrl;
 
 ?>
 
+<!DOCTYPE html>
 <html lang='en'>
 <head>
-    <title>Wheeler Recommends</title>
+    <meta charset='UTF-8'>
+    <title>Wheeler Recommends - Movie Recommendations</title>
+    <meta name='description' content='Discover movie recommendations curated by Wheeler Universe. Find your next favorite film from our collection of quality recommendations.'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='shortcut icon' href='images/favicon.jpg'>
+    <meta name='theme-color' content='#2563eb'>
+    <link rel='icon' href='favicon/favicon.ico' type='image/x-icon'>
+    <link rel='icon' href='favicon/favicon-16x16.png' type='image/png' sizes='16x16'>
+    <link rel='icon' href='favicon/favicon-32x32.png' type='image/png' sizes='32x32'>
+    <link rel='apple-touch-icon' href='favicon/apple-touch-icon.png' sizes='180x180'>
+    <link rel='manifest' href='favicon/site.webmanifest'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap' rel='stylesheet'>
     <link rel='stylesheet' href='css/global.css'/>
     <?php
     if (isset($_GET['title'])) {
@@ -35,15 +46,17 @@ $config['rootUrl'] = $rootUrl;
     </script>
 </head>
 <body>
-<div class='header-container'>
+<header class='header-container' role='banner'>
     <?= "
-    <a class='brand-name' 
+    <a class='brand-section' 
        href='$rootUrl' 
        swa-event='Navigate->Home' 
        swa-event-async 
        swa-event-category='Navigate'
+       aria-label='Wheeler Recommends - Home'
     >
-       WHEELER RECOMMENDS
+       <img src='assets/wheeleruniverse-logo.jpg' alt='Wheeler Universe Logo' class='brand-logo'>
+       <span class='brand-name'>WHEELER RECOMMENDS</span>
     </a>
     " ?>
     <a class='github-link'
@@ -51,11 +64,13 @@ $config['rootUrl'] = $rootUrl;
        swa-event='Open->GitHub'
        swa-event-category='Open'
        target='_blank'
+       rel='noopener noreferrer'
+       aria-label='View Wheeler Recommends on GitHub (opens in new window)'
     >
-        <i class='fa fa-brands fa-github github-icon'></i>
+        <i class='fa fa-brands fa-github github-icon' aria-hidden='true'></i>
     </a>
-</div>
-<div class='content-container'>
+</header>
+<main class='content-container' role='main'>
     <?php
     if (isset($_GET['title'])) {
         include 'pages/movie.php';
@@ -63,7 +78,7 @@ $config['rootUrl'] = $rootUrl;
         include 'pages/home.php';
     }
     ?>
-</div>
+</main>
 <script src='https://dhscpc2fh3pyz.cloudfront.net/cdn/client-script.js'
         site='wheelerrecommends.com'
         attr-tracking='true'
