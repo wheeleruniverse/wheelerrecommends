@@ -31,8 +31,6 @@ constructs:
       '/css/*': css/
       '/images/*': images/
       '/assets/*': assets/
-      '/favicon/*': favicon/
-      '/favicon.ico': favicon.ico
     domain:
       - ${self:custom.CUSTOM_DOMAIN}
       - www.${self:custom.CUSTOM_DOMAIN}
@@ -88,6 +86,5 @@ package:
         - '!css/**'
         - '!images/**'
         - '!assets/**'
-        - '!favicon/**'
         - '!node_modules/**'
         - '!tests/**'
