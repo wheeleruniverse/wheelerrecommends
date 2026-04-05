@@ -1,0 +1,44 @@
+name: Build PR
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - web/**
+      - .github/workflows/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web # sets the directory for "run" commands only
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Serverless Framework
+        run: npm install -g serverless
+
+      - name: Install Serverless Plugins
+        run: serverless plugin install -n serverless-lift
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+
+      - name: Install Composer Dependencies
+        uses: ramsey/composer-install@v2
+        with:
+          composer-options: "--prefer-dist --optimize-autoloader --no-dev"
+          working-directory: web
+
+      - name: Serverless Package
+        run: serverless package
