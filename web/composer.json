@@ -1,5 +1,5 @@
 {
     "require": {
-        "bref/bref": "^2.3"
+        "bref/bref": "^3.0"
     }
 }
